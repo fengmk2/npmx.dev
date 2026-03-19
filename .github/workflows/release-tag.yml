@@ -23,9 +23,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      - uses: voidzero-dev/setup-vp@af9f92ccd3e5694c919913c47be133a1847ea58e # v1
         with:
           node-version: lts/*
+          cache: true
 
       - name: 🔢 Determine next version
         id: version
@@ -57,14 +58,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "$VERSION" -m "Release $VERSION"
           git push origin "$VERSION"
-
-      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # 5e1c8eafbd745f64b1ef30a7d7ed7965034c486c
-        if: steps.check.outputs.skip == 'false'
-        name: 🟧 Install pnpm
-
-      - name: 📦 Install dependencies
-        if: steps.check.outputs.skip == 'false'
-        run: pnpm vp install --filter . --ignore-scripts
 
       - name: 📝 Generate release notes
         if: steps.check.outputs.skip == 'false'
@@ -98,18 +91,11 @@ jobs:
         with:
           ref: release
 
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+      - uses: voidzero-dev/setup-vp@af9f92ccd3e5694c919913c47be133a1847ea58e # v1
         with:
           node-version: lts/*
+          cache: true
           registry-url: https://registry.npmjs.org
-
-      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # 5e1c8eafbd745f64b1ef30a7d7ed7965034c486c
-        name: 🟧 Install pnpm
-        with:
-          cache: false
-
-      - name: 📦 Install dependencies
-        run: pnpm install --filter npmx-connector...
 
       - name: 🔢 Set connector version
         env:
@@ -122,7 +108,7 @@ jobs:
           echo "Publishing npmx-connector@${PKG_VERSION}"
 
       - name: 🏗️ Build connector
-        run: pnpm --filter npmx-connector build
+        run: vp run --filter npmx-connector build
 
       - name: 📤 Publish to npm with provenance
         # Uses OIDC trusted publishing — no NPM_TOKEN needed.
