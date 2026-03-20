@@ -28,9 +28,6 @@ jobs:
           node-version: lts/*
           run-install: false
 
-      - name: 📦 Install dependencies (root only, no scripts)
-        run: vp install --filter . --ignore-scripts
-
       - name: 🔢 Determine next version
         id: version
         run: |
@@ -61,6 +58,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -a "$VERSION" -m "Release $VERSION"
           git push origin "$VERSION"
+
+      - name: 📦 Install dependencies
+        if: steps.check.outputs.skip == 'false'
+        run: vp install --filter . --ignore-scripts
 
       - name: 📝 Generate release notes
         if: steps.check.outputs.skip == 'false'
@@ -97,8 +98,11 @@ jobs:
       - uses: voidzero-dev/setup-vp@73e69397a8b289de4b1d017ced18e18004183bb1 # v1
         with:
           node-version: lts/*
-          cache: true
           registry-url: https://registry.npmjs.org
+          run-install: false
+
+      - name: 📦 Install dependencies
+        run: vp install --filter npmx-connector...
 
       - name: 🔢 Set connector version
         env:
