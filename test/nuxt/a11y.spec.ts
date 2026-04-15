@@ -30,11 +30,23 @@ const axeRunOptions: RunOptions = {
   },
 }
 
+function mergeRunOptions(overrides?: RunOptions): RunOptions {
+  if (!overrides?.rules) return axeRunOptions
+  return { ...axeRunOptions, rules: { ...axeRunOptions.rules, ...overrides.rules } }
+}
+
+// Disables the color-contrast rule for tests covering inactive/incidental UI
+// (e.g. opacity-50 dimming on disabled buttons, hidden-line markers). WCAG
+// 1.4.3 exempts these, but axe cannot infer the semantic from a plain <span>.
+const skipColorContrast: RunOptions = {
+  rules: { 'color-contrast': { enabled: false } },
+}
+
 /**
  * Run axe accessibility audit on a mounted component.
  * Mounts the component in an isolated container to avoid cross-test pollution.
  */
-async function runAxe(wrapper: VueWrapper): Promise<AxeResults> {
+async function runAxe(wrapper: VueWrapper, overrides?: RunOptions): Promise<AxeResults> {
   // Create an isolated container for this test
   const container = document.createElement('div')
   container.id = `test-container-${Date.now()}`
@@ -46,10 +58,13 @@ async function runAxe(wrapper: VueWrapper): Promise<AxeResults> {
   container.appendChild(el)
 
   // Run axe only on the isolated container
-  return axe.run(container, axeRunOptions)
+  return axe.run(container, mergeRunOptions(overrides))
 }
 
-async function runAxeElements(elements: Array<Element | null | undefined>): Promise<AxeResults> {
+async function runAxeElements(
+  elements: Array<Element | null | undefined>,
+  overrides?: RunOptions,
+): Promise<AxeResults> {
   const container = document.createElement('div')
   container.id = `test-container-${Date.now()}`
   document.body.appendChild(container)
@@ -60,7 +75,7 @@ async function runAxeElements(elements: Array<Element | null | undefined>): Prom
     container.appendChild(element.cloneNode(true))
   }
 
-  return axe.run(container, axeRunOptions)
+  return axe.run(container, mergeRunOptions(overrides))
 }
 
 // --- Console warning assertion --------------------------------------------------
@@ -650,7 +665,7 @@ describe('component accessibility audits', () => {
         props: { to: 'http://example.com', disabled: true, variant: 'button-secondary' },
         slots: { default: 'Button link content' },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
@@ -659,7 +674,7 @@ describe('component accessibility audits', () => {
         props: { to: 'http://example.com', disabled: true, variant: 'button-primary' },
         slots: { default: 'Button link content' },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
@@ -673,7 +688,7 @@ describe('component accessibility audits', () => {
         },
         slots: { default: 'Button link content' },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
   })
@@ -1670,7 +1685,7 @@ describe('component accessibility audits', () => {
           },
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
   })
@@ -3585,7 +3600,7 @@ describe('component accessibility audits', () => {
           return tbody
         })(),
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
   })
@@ -3658,7 +3673,7 @@ describe('component accessibility audits', () => {
           return tbody
         })(),
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
@@ -3676,7 +3691,7 @@ describe('component accessibility audits', () => {
           return tbody
         })(),
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
   })
@@ -3770,7 +3785,7 @@ describe('component accessibility audits', () => {
           fileName: 'large-file.ts',
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
