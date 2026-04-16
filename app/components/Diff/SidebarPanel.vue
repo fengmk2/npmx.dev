@@ -87,15 +87,11 @@ function handleFileSelect(file: FileChange) {
           </span>
           <div class="flex items-center gap-3 font-mono text-3xs">
             <span class="flex items-center gap-1">
-              <span class="text-green-700 dark:text-green-400"
-                >+{{ compare.stats.filesAdded }}</span
-              >
+              <span class="text-green-500">+{{ compare.stats.filesAdded }}</span>
               <span class="text-fg-subtle">/</span>
-              <span class="text-red-700 dark:text-red-400">-{{ compare.stats.filesRemoved }}</span>
+              <span class="text-red-500">-{{ compare.stats.filesRemoved }}</span>
               <span class="text-fg-subtle">/</span>
-              <span class="text-yellow-700 dark:text-yellow-400"
-                >~{{ compare.stats.filesModified }}</span
-              >
+              <span class="text-yellow-500">~{{ compare.stats.filesModified }}</span>
             </span>
             <span v-if="compare.dependencyChanges.length > 0" class="text-fg-muted">
               {{

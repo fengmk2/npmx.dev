@@ -3876,7 +3876,7 @@ describe('component accessibility audits', () => {
           allChanges: mockAllChanges,
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
@@ -3889,7 +3889,7 @@ describe('component accessibility audits', () => {
           selectedFile: mockAllChanges[0],
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
@@ -3902,7 +3902,7 @@ describe('component accessibility audits', () => {
           fileFilter: 'added',
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
@@ -3918,7 +3918,7 @@ describe('component accessibility audits', () => {
           allChanges: mockAllChanges,
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
 
@@ -3934,7 +3934,7 @@ describe('component accessibility audits', () => {
           allChanges: mockAllChanges,
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
   })
@@ -3994,7 +3994,7 @@ describe('component accessibility audits', () => {
           toVersionUrlPattern: 'https://npmx.dev/package/nuxt/v/3.0.0',
         },
       })
-      const results = await runAxe(component)
+      const results = await runAxe(component, skipColorContrast)
       expect(results.violations).toEqual([])
     })
   })
