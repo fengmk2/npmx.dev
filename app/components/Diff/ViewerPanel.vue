@@ -158,16 +158,10 @@ useCommandPaletteContextCommands(
 
         <!-- Stats -->
         <template v-if="diff?.stats">
-          <span
-            v-if="diff.stats.additions > 0"
-            class="text-xs text-green-700 dark:text-green-400 font-mono shrink-0"
-          >
+          <span v-if="diff.stats.additions > 0" class="text-xs text-green-500 font-mono shrink-0">
             +{{ diff.stats.additions }}
           </span>
-          <span
-            v-if="diff.stats.deletions > 0"
-            class="text-xs text-red-700 dark:text-red-400 font-mono shrink-0"
-          >
+          <span v-if="diff.stats.deletions > 0" class="text-xs text-red-500 font-mono shrink-0">
             -{{ diff.stats.deletions }}
           </span>
         </template>
