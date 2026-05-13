@@ -57,4 +57,4 @@ savePrefix: ''
 shellEmulator: true
 minimumReleaseAgeExclude:
   - vite-plus
-  - "@voidzero-dev/*"
+  - '@voidzero-dev/*'
