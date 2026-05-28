@@ -10,6 +10,8 @@ allowBuilds:
   'better-sqlite3': true
   'core-js': false
   'esbuild': false
+  edgedriver: false
+  geckodriver: false
   msw: true
   'sharp@0.34.5': true
   'unrs-resolver': false
