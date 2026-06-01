@@ -2269,7 +2269,7 @@ packages:
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
   '@lunariajs/core@https://pkg.pr.new/lunariajs/lunaria/@lunariajs/core@904b935':
-    resolution: {tarball: https://pkg.pr.new/lunariajs/lunaria/@lunariajs/core@904b935}
+    resolution: {integrity: sha512-N0PDFIitA/Vzh5V6BtTacWU9jgSDJJtPLHamRLMU85mohmyuVW/pggHX8dzdV5ieqZeHEz8pDZSzH4I0hOYxOg==, tarball: https://pkg.pr.new/lunariajs/lunaria/@lunariajs/core@904b935}
     version: 0.1.1
     engines: {node: '>=18.17.0'}
 
@@ -4942,7 +4942,7 @@ packages:
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
   '@storybook-vue/nuxt@https://pkg.pr.new/@storybook-vue/nuxt@1021':
-    resolution: {tarball: https://pkg.pr.new/@storybook-vue/nuxt@1021}
+    resolution: {integrity: sha512-OmpGHtbapfpljOkFY8/g+9EkNa+SPcVAcqOiOPyP6upXMSpwNHHfEXFMBiFWqF7xru82zHg2kkfmWArVpVG7tg==, tarball: https://pkg.pr.new/@storybook-vue/nuxt@1021}
     version: 9.0.1
     engines: {node: '>=20.19.0'}
     peerDependencies:
