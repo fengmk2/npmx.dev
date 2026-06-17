@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: lts/*
           cache: true
-          sfw: true
+          sfw: false
 
       - name: Generate Lunaria Overview
         uses: lunariajs/action@4911ad0736d1e3b20af4cb70f5079aea2327ed8e # astro-docs

@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: lts/*
           cache: true
-          sfw: true
+          sfw: false
 
       - name: 🎨 Check for non-RTL/non-a11y CSS classes
         run: vp run lint:css

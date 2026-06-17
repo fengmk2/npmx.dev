@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: lts/*
           cache: true
-          sfw: true
+          sfw: false
 
       - name: 🧪 Run Chromatic Visual and Accessibility Tests
         uses: chromaui/action@8a2b82547aef5a3efc8ec3c7905f4ab09a76ed0b # v16.1.0
