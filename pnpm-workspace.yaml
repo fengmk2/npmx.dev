@@ -38,8 +38,8 @@ overrides:
   '@types/node': 24.12.0
   nuxt-og-image: ^6.4.3
   sharp: 0.34.5
-  vite: npm:@voidzero-dev/vite-plus-core@0.1.20
-  vitest: npm:@voidzero-dev/vite-plus-test@0.1.20
+  vite: 'https://pkg.pr.new/voidzero-dev/vite-plus/@voidzero-dev/vite-plus-core@1856'
+  vitest: '4.1.9'
   vue-router: 5.0.4
 
 packageExtensions:
@@ -57,3 +57,18 @@ patchedDependencies:
 savePrefix: ''
 
 shellEmulator: true
+
+minimumReleaseAge: 60
+minimumReleaseAgeExclude:
+  - '@voidzero-dev/*'
+  - vite-plus
+  - '@vitest/*'
+  - vite
+  - vitest
+  - '@oxc-project/*'
+  - '@oxlint/*'
+  - oxlint
+  - oxfmt
+  - oxlint-tsgolint
+
+blockExoticSubdeps: false
