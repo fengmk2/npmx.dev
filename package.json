@@ -145,6 +145,7 @@
     "msw": "catalog:msw",
     "msw-storybook-addon": "catalog:storybook",
     "playwright": "*",
+    "rolldown": "1.1.3",
     "schema-dts": "2.0.0",
     "storybook": "catalog:storybook",
     "storybook-i18n": "catalog:storybook",
