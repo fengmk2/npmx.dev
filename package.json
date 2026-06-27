@@ -41,7 +41,8 @@
     "start:playwright:webserver": "TEST=1 vp run preview --port 5678",
     "storybook": "STORYBOOK=true storybook dev -p 6006",
     "build-storybook": "STORYBOOK=true storybook build",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@atcute/bluesky-richtext-segmenter": "3.0.0",
@@ -110,7 +111,7 @@
     "validate-npm-package-name": "8.0.0",
     "virtua": "0.49.0",
     "vite-plugin-pwa": "1.3.0",
-    "vite-plus": "0.1.20",
+    "vite-plus": "0.0.0-commit.d5c8d9e163733881a841c16ca1778868d65fe7ef",
     "vue": "3.5.38",
     "vue-data-ui": "3.22.0",
     "vue-router": "5.0.4"
@@ -128,7 +129,8 @@
     "@types/sanitize-html": "2.16.1",
     "@types/semver": "7.7.1",
     "@types/validate-npm-package-name": "4.0.2",
-    "@vitest/coverage-v8": "4.1.6",
+    "@vitest/browser-playwright": "4.1.9",
+    "@vitest/coverage-v8": "4.1.9",
     "@vue/test-utils": "2.4.6",
     "axe-core": "4.11.2",
     "changelogen": "0.6.2",
@@ -142,12 +144,16 @@
     "markdown-it-anchor": "9.2.0",
     "msw": "catalog:msw",
     "msw-storybook-addon": "catalog:storybook",
+    "playwright": "*",
+    "rolldown": "1.1.3",
     "schema-dts": "2.0.0",
     "storybook": "catalog:storybook",
     "storybook-i18n": "catalog:storybook",
     "typescript": "6.0.2",
     "unplugin-vue-markdown": "32.0.0",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@0.1.20",
+    "vite": "catalog:",
+    "vite-plus": "catalog:",
+    "vitest": "catalog:",
     "vue-i18n-extract": "2.0.7",
     "vue-tsc": "3.2.6"
   },
