@@ -59,9 +59,9 @@ savePrefix: ''
 
 shellEmulator: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.3ee9ab747ff7ab00c71b1b5ab9b3a4794f4aa9ef
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.06708538195014078c8ecd4c4a4df7239ac0a309
   vitest: 4.1.9
-  vite-plus: 0.0.0-commit.3ee9ab747ff7ab00c71b1b5ab9b3a4794f4aa9ef
+  vite-plus: 0.0.0-commit.06708538195014078c8ecd4c4a4df7239ac0a309
   '@vitest/browser-playwright': 4.1.9
   '@vitest/coverage-v8': 4.1.9
 peerDependencyRules:
