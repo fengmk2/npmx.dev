@@ -38,8 +38,8 @@ overrides:
   '@types/node': 24.12.0
   nuxt-og-image: ^6.6.0
   sharp: 0.34.5
-  vite: npm:@voidzero-dev/vite-plus-core@0.1.20
-  vitest: npm:@voidzero-dev/vite-plus-test@0.1.20
+  vite: 'catalog:'
+  vitest: 'catalog:'
   vue-router: 5.0.4
 
 packageExtensions:
@@ -58,3 +58,16 @@ patchedDependencies:
 savePrefix: ''
 
 shellEmulator: true
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.0fecc75a64a39bc5600ff6a1cee8baff378a8cc1
+  vitest: 4.1.9
+  vite-plus: 0.0.0-commit.0fecc75a64a39bc5600ff6a1cee8baff378a8cc1
+  '@vitest/browser-playwright': 4.1.9
+  '@vitest/coverage-v8': 4.1.9
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: '*'
+    vitest: '*'
