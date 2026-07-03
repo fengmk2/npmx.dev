@@ -13,6 +13,8 @@ minimumReleaseAgeExclude:
   - oxlint-tsgolint
   - tsdown
   - rolldown
+  - vitest
+  - '@vitest/*'
 packages:
   - .
   - cli
@@ -74,9 +76,9 @@ savePrefix: ''
 
 shellEmulator: true
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.1d7ba811f0e456640b0e761e8e8acf77d1ad3251
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.2
   vitest: 4.1.9
-  vite-plus: 0.0.0-commit.1d7ba811f0e456640b0e761e8e8acf77d1ad3251
+  vite-plus: 0.2.2
   '@vitest/browser-playwright': 4.1.9
   '@vitest/coverage-v8': 4.1.9
 peerDependencyRules:
