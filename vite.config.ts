@@ -198,20 +198,8 @@ export default defineConfig({
     '*.{js,ts,mjs,cjs,vue,json,yml,md,html,css}': 'vp fmt',
   },
   test: {
-    // Vitest v4 compatibility: preserve mock call history.
-    // Remove after tests no longer rely on calls from setup or earlier tests.
-    // https://vitest.dev/guide/migration/#clearmocks-is-enabled-by-default
-    clearMocks: false,
-    // Vitest v4 compatibility: keep separate Vite servers for inline projects.
-    // Remove when plugins and config hooks can run once for shared projects.
-    // https://vitest.dev/guide/migration/#inline-projects-share-the-vite-server-by-default
-    sharedViteServer: false,
     projects: [
       {
-        // Vitest v4 compatibility: keep this inline project independent of the root config.
-        // Remove to inherit root options, including plugins and setup files.
-        // https://vitest.dev/guide/migration/#inline-projects-inherit-the-root-config-by-default
-        extends: false,
         resolve: {
           alias: {
             '~': `${rootDir}/app`,
@@ -221,10 +209,6 @@ export default defineConfig({
           },
         },
         test: {
-          // Vitest v4 compatibility: preserve mock call history.
-          // Remove after tests no longer rely on calls from setup or earlier tests.
-          // https://vitest.dev/guide/migration/#clearmocks-is-enabled-by-default
-          clearMocks: false,
           name: 'unit',
           include: ['test/unit/**/*.{test,spec}.ts'],
           environment: 'node',
@@ -232,10 +216,6 @@ export default defineConfig({
       },
       () =>
         defineVitestProject({
-          // Vitest v4 compatibility: keep this inline project independent of the root config.
-          // Remove to inherit root options, including plugins and setup files.
-          // https://vitest.dev/guide/migration/#inline-projects-inherit-the-root-config-by-default
-          extends: false,
           plugins: [liveDollarFetch()],
           optimizeDeps: {
             rolldownOptions: {
@@ -254,10 +234,6 @@ export default defineConfig({
             },
           },
           test: {
-            // Vitest v4 compatibility: preserve mock call history.
-            // Remove after tests no longer rely on calls from setup or earlier tests.
-            // https://vitest.dev/guide/migration/#clearmocks-is-enabled-by-default
-            clearMocks: false,
             name: 'nuxt',
             include: ['test/nuxt/**/*.{test,spec}.ts'],
             environment: 'nuxt',
@@ -281,10 +257,6 @@ export default defineConfig({
             },
             browser: {
               enabled: true,
-              // Vitest v4 compatibility: preserve partial, case-insensitive locator matches.
-              // Remove after locators use full, case-sensitive matches or explicit overrides.
-              // https://vitest.dev/guide/migration/#locators-are-strict-by-default
-              locators: { exact: false },
               provider: playwright(),
               instances: [{ browser: 'chromium', headless: true }],
             },
@@ -294,8 +266,7 @@ export default defineConfig({
     coverage: {
       enabled: true,
       provider: 'v8',
-      // Preserve v4 coverage for matching directories nested below the project root.
-      // https://vitest.dev/guide/migration/#coverage-include-and-exclude-match-more-precisely
+      // Include application and workspace source directories at every depth.
       include: ['**/{app,cli,server,shared}/**/*.{ts,vue}'],
     },
   },
