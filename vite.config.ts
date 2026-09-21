@@ -1,3 +1,4 @@
+import { createRequire } from 'node:module'
 import { defineConfig } from 'vite-plus'
 import { defineVitestProject } from '@nuxt/test-utils/config'
 import { playwright } from 'vite-plus/test/browser-playwright'
@@ -216,6 +217,22 @@ export default defineConfig({
       () =>
         defineVitestProject({
           plugins: [liveDollarFetch()],
+          optimizeDeps: {
+            rolldownOptions: {
+              plugins: [
+                {
+                  // Use Vue's Node compiler for test-utils string slots.
+                  name: 'npmx:test:vue-compiler-dom',
+                  resolveId: {
+                    filter: { id: /^@vue\/compiler-dom$/ },
+                    handler() {
+                      return createRequire(import.meta.resolve('vue')).resolve('@vue/compiler-dom')
+                    },
+                  },
+                },
+              ],
+            },
+          },
           test: {
             name: 'nuxt',
             include: ['test/nuxt/**/*.{test,spec}.ts'],
@@ -249,7 +266,8 @@ export default defineConfig({
     coverage: {
       enabled: true,
       provider: 'v8',
-      include: ['{app,cli,server,shared}/**/*.{ts,vue}'],
+      // Keep the nested workspace paths matched by Vitest 4's loose glob matching.
+      include: ['**/{app,cli,server,shared}/**/*.{ts,vue}'],
     },
   },
 })
