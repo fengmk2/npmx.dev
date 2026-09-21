@@ -249,7 +249,8 @@ export default defineConfig({
     coverage: {
       enabled: true,
       provider: 'v8',
-      include: ['{app,cli,server,shared}/**/*.{ts,vue}'],
+      // Keep the nested workspace paths matched by Vitest 4's loose glob matching.
+      include: ['**/{app,cli,server,shared}/**/*.{ts,vue}'],
     },
   },
 })
