@@ -29,11 +29,11 @@ catalogs:
     'storybook-i18n': '^10.1.1'
 
   vite-plus:
-    'vite': 'npm:@voidzero-dev/vite-plus-core@0.3.1'
-    'vite-plus': '0.3.1'
-    'vitest': '4.1.11'
-    '@vitest/browser-playwright': '4.1.11'
-    '@vitest/coverage-v8': '4.1.11'
+    'vite': npm:@voidzero-dev/vite-plus-core@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac
+    'vite-plus': 0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac
+    'vitest': 5.0.1
+    '@vitest/browser-playwright': 5.0.1
+    '@vitest/coverage-v8': 5.0.1
 
 dedupePeers: true
 
@@ -49,6 +49,16 @@ minimumReleaseAgeExclude:
   - '@nuxt/schema@4.5.2'
   - '@nuxt/vite-builder@4.5.2'
   - vue-data-ui@3.25.6
+  - '@voidzero-dev/vite-plus-core@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-darwin-arm64@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-darwin-x64@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-linux-arm64-gnu@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-linux-arm64-musl@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-linux-x64-gnu@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-linux-x64-musl@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-win32-arm64-msvc@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - '@voidzero-dev/vite-plus-win32-x64-msvc@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac'
+  - vite-plus@0.0.0-commit.cb0c4d234664905a9822ad2c197e482b59f763ac
 
 minimumReleaseAgeExcludePrune: true
 
@@ -58,12 +68,12 @@ overrides:
   sharp: 0.35.3
   vue: 3.5.42
   typescript: npm:typescript-native-bridge@6.0.3-bridge.13.tsgo.7.0.2
-  vite: 'catalog:vite-plus'
-  vitest: 'catalog:vite-plus'
   vue-router: 5.2.0
   markdown-exit: 1.1.0-beta.2
   oxc-parser: 0.144.0
   '@nuxtjs/i18n>@nuxt/kit': '4.5.2'
+  vite@*: catalog:vite-plus
+  vitest@*: catalog:vite-plus
 
 packageExtensions:
   '@nuxt/scripts':
@@ -77,3 +87,10 @@ patchedDependencies:
 savePrefix: ''
 
 shellEmulator: true
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: '*'
+    vitest: '*'
