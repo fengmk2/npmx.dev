@@ -669,7 +669,7 @@ describe('component accessibility audits', () => {
   describe('BaseCard', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(BaseCard, {
-        slots: { default: () => h('p', 'Card content') },
+        slots: { default: '<p>Card content</p>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -678,7 +678,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations with exact match highlight', async () => {
       const component = await mountSuspended(BaseCard, {
         props: { isExactMatch: true },
-        slots: { default: () => h('p', 'Exact match content') },
+        slots: { default: '<p>Exact match content</p>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -740,7 +740,7 @@ describe('component accessibility audits', () => {
   describe('TagStatic', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(TagStatic, {
-        slots: { default: () => 'Tag content' },
+        slots: { default: 'Tag content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -750,7 +750,7 @@ describe('component accessibility audits', () => {
   describe('ButtonBase', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(ButtonBase, {
-        slots: { default: () => 'Button content' },
+        slots: { default: 'Button content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -759,7 +759,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations for disabled state', async () => {
       const component = await mountSuspended(ButtonBase, {
         props: { disabled: true },
-        slots: { default: () => 'Button content' },
+        slots: { default: 'Button content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -768,7 +768,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations as primary button', async () => {
       const component = await mountSuspended(ButtonBase, {
         props: { variant: 'primary' },
-        slots: { default: () => 'Button content' },
+        slots: { default: 'Button content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -777,7 +777,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations with size small', async () => {
       const component = await mountSuspended(ButtonBase, {
         props: { size: 'sm' },
-        slots: { default: () => 'Button content' },
+        slots: { default: 'Button content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -788,7 +788,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(LinkBase, {
         props: { to: 'http://example.com' },
-        slots: { default: () => 'Button link content' },
+        slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -797,7 +797,7 @@ describe('component accessibility audits', () => {
     it("should have no accessibility violations when it's the current link", async () => {
       const component = await mountSuspended(LinkBase, {
         props: { to: 'http://example.com', current: true },
-        slots: { default: () => 'Button link content' },
+        slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -806,7 +806,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations when disabled (plain text)', async () => {
       const component = await mountSuspended(LinkBase, {
         props: { to: 'http://example.com', disabled: true },
-        slots: { default: () => 'Button link content' },
+        slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -815,7 +815,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations as secondary button', async () => {
       const component = await mountSuspended(LinkBase, {
         props: { to: 'http://example.com', disabled: true, variant: 'button-secondary' },
-        slots: { default: () => 'Button link content' },
+        slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -824,7 +824,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations as primary button', async () => {
       const component = await mountSuspended(LinkBase, {
         props: { to: 'http://example.com', disabled: true, variant: 'button-primary' },
-        slots: { default: () => 'Button link content' },
+        slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -838,7 +838,7 @@ describe('component accessibility audits', () => {
           variant: 'button-secondary',
           size: 'sm',
         },
-        slots: { default: () => 'Button link content' },
+        slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -923,7 +923,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(TagRadioButton, {
         props: { value: 'option1', modelValue: 'option2' },
-        slots: { default: () => 'Tag content' },
+        slots: { default: 'Tag content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -932,7 +932,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations when checked', async () => {
       const component = await mountSuspended(TagRadioButton, {
         props: { value: 'option1', modelValue: 'option1' },
-        slots: { default: () => 'Tag content' },
+        slots: { default: 'Tag content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -941,7 +941,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations when disabled', async () => {
       const component = await mountSuspended(TagRadioButton, {
         props: { value: 'option1', modelValue: 'option2', disabled: true },
-        slots: { default: () => 'Tag content' },
+        slots: { default: 'Tag content' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -952,7 +952,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(TooltipApp, {
         props: { text: 'Tooltip content' },
-        slots: { default: () => h('button', 'Trigger') },
+        slots: { default: '<button>Trigger</button>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -963,7 +963,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(TooltipAnnounce, {
         props: { text: 'Tooltip content', isVisible: true },
-        slots: { default: () => h('button', 'Trigger') },
+        slots: { default: '<button>Trigger</button>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -2830,7 +2830,7 @@ describe('component accessibility audits', () => {
           columns: [{ name: 'vue' }, { name: 'react' }],
         },
         slots: {
-          default: () => h('div', 'Grid content'),
+          default: '<div>Grid content</div>',
         },
       })
       const results = await runAxe(component)
@@ -2843,7 +2843,7 @@ describe('component accessibility audits', () => {
           columns: [{ name: 'vue' }, { name: 'react' }, { name: 'angular' }],
         },
         slots: {
-          default: () => h('div', 'Grid content'),
+          default: '<div>Grid content</div>',
         },
       })
       const results = await runAxe(component)
@@ -2857,7 +2857,7 @@ describe('component accessibility audits', () => {
           showNoDependency: true,
         },
         slots: {
-          default: () => h('div', 'Grid content'),
+          default: '<div>Grid content</div>',
         },
       })
       const results = await runAxe(component)
@@ -3014,7 +3014,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations when hidden', async () => {
       const component = await mountSuspended(TooltipBase, {
         props: { text: 'Tooltip text', isVisible: false },
-        slots: { default: () => h('button', 'Trigger') },
+        slots: { default: '<button>Trigger</button>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3023,7 +3023,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations when visible', async () => {
       const component = await mountSuspended(TooltipBase, {
         props: { text: 'Tooltip text', isVisible: true },
-        slots: { default: () => h('button', 'Trigger') },
+        slots: { default: '<button>Trigger</button>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3073,7 +3073,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations in default state', async () => {
       const component = await mountSuspended(CopyToClipboardButton, {
         props: { copied: false },
-        slots: { default: () => h('code', 'npm install vue') },
+        slots: { default: '<code>npm install vue</code>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3082,7 +3082,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations in copied state', async () => {
       const component = await mountSuspended(CopyToClipboardButton, {
         props: { copied: true },
-        slots: { default: () => h('code', 'npm install vue') },
+        slots: { default: '<code>npm install vue</code>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3132,7 +3132,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(CollapsibleSection, {
         props: { title: 'Section Title', id: 'test-section' },
-        slots: { default: () => h('p', 'Section content') },
+        slots: { default: '<p>Section content</p>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3145,7 +3145,7 @@ describe('component accessibility audits', () => {
           id: 'test-section',
           headingLevel: 'h3',
         },
-        slots: { default: () => h('p', 'Section content') },
+        slots: { default: '<p>Section content</p>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3154,7 +3154,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations when loading', async () => {
       const component = await mountSuspended(CollapsibleSection, {
         props: { title: 'Section Title', id: 'test-section', isLoading: true },
-        slots: { default: () => h('p', 'Loading content...') },
+        slots: { default: '<p>Loading content...</p>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3318,7 +3318,7 @@ describe('component accessibility audits', () => {
             slug: 'building-accessible-vue-components',
           },
         },
-        slots: { default: () => h('p', 'Blog post content here.') },
+        slots: { default: '<p>Blog post content here.</p>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3651,10 +3651,8 @@ describe('component accessibility audits', () => {
       const component = await mountSuspended(SelectBase, {
         attrs: { 'aria-label': 'Choose option' },
         slots: {
-          default: () => [
-            h('option', { value: 'option1' }, 'option 1'),
-            h('option', { value: 'option2' }, 'option 2'),
-          ],
+          default:
+            '<option value="option1">option 1</option><option value="option2">option 2</option>',
         },
       })
       const results = await runAxe(component)
@@ -3665,7 +3663,7 @@ describe('component accessibility audits', () => {
       const component = await mountSuspended(SelectBase, {
         props: { disabled: true },
         attrs: { 'aria-label': 'Disabled select' },
-        slots: { default: () => h('option', { value: 'option1' }, 'option 1') },
+        slots: { default: '<option value="option1">option 1</option>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -3675,7 +3673,7 @@ describe('component accessibility audits', () => {
       const component = await mountSuspended(SelectBase, {
         props: { size: 'sm' },
         attrs: { 'aria-label': 'Small select' },
-        slots: { default: () => h('option', { value: 'option1' }, 'option 1') },
+        slots: { default: '<option value="option1">option 1</option>' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -4767,7 +4765,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations for warning variant', async () => {
       const component = await mountSuspended(Alert, {
         props: { variant: 'warning', title: 'Warning title' },
-        slots: { default: () => 'This is a warning message.' },
+        slots: { default: 'This is a warning message.' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -4776,7 +4774,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations for error variant', async () => {
       const component = await mountSuspended(Alert, {
         props: { variant: 'error', title: 'Error title' },
-        slots: { default: () => 'This is an error message.' },
+        slots: { default: 'This is an error message.' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -4785,7 +4783,7 @@ describe('component accessibility audits', () => {
     it('should have no accessibility violations without title', async () => {
       const component = await mountSuspended(Alert, {
         props: { variant: 'warning' },
-        slots: { default: () => 'This is a warning message.' },
+        slots: { default: 'This is a warning message.' },
       })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
@@ -4848,7 +4846,7 @@ describe('background theme accessibility', () => {
       mount: () =>
         mountSuspended(Alert, {
           props: { variant: 'warning', title: 'Warning title' },
-          slots: { default: () => h('p', 'Warning body') },
+          slots: { default: '<p>Warning body</p>' },
         }),
     },
     {
@@ -4856,7 +4854,7 @@ describe('background theme accessibility', () => {
       mount: () =>
         mountSuspended(Alert, {
           props: { variant: 'error', title: 'Error title' },
-          slots: { default: () => h('p', 'Error body') },
+          slots: { default: '<p>Error body</p>' },
         }),
     },
     { name: 'AppHeader', mount: () => mountSuspended(AppHeader) },
@@ -4912,7 +4910,7 @@ describe('background theme accessibility', () => {
       mount: () =>
         mountSuspended(TooltipApp, {
           props: { text: 'Tooltip' },
-          slots: { default: () => h('button', 'Trigger') },
+          slots: { default: '<button>Trigger</button>' },
         }),
     },
     {
@@ -4920,7 +4918,7 @@ describe('background theme accessibility', () => {
       mount: () =>
         mountSuspended(CollapsibleSection, {
           props: { title: 'Title', id: 'section' },
-          slots: { default: () => h('p', 'Content') },
+          slots: { default: '<p>Content</p>' },
         }),
     },
     {
