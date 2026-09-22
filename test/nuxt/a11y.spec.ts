@@ -78,6 +78,9 @@ const allowedWarnings: RegExp[] = [
   // DiffFileTree instances), this triggers a duplicate expose() call on the
   // inner wrapper. The warning does not affect test correctness.
   /expose\(\) should be called only once/,
+  // The runtime compiler used by these component tests passes this option in
+  // browser mode. Vue ignores it without changing the rendered component.
+  /^\[@vue\/compiler-core\] decodeEntities option is passed but will be ignored in non-browser builds\.$/,
 ]
 
 beforeEach(() => {
