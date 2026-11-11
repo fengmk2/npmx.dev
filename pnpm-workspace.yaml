@@ -53,6 +53,25 @@ minimumReleaseAgeExclude:
   - '@nuxt/vite-builder@4.5.2'
   - vue-data-ui@3.28.7
 
+  - 'vite-plus@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-core@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-darwin-arm64@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-darwin-x64@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-linux-arm64-gnu@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-linux-arm64-musl@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-linux-x64-gnu@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-linux-x64-musl@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-win32-x64-msvc@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - '@voidzero-dev/vite-plus-win32-arm64-msvc@0.0.0-commit.13f57cca7106c5ec86b9159e7db1db96761124b4'
+  - 'tsrs@0.24.0-ts7.1.0-beta'
+  - '@tsrs/darwin-arm64@0.24.0-ts7.1.0-beta'
+  - '@tsrs/linux-arm64-gnu@0.24.0-ts7.1.0-beta'
+  - '@tsrs/linux-arm64-musl@0.24.0-ts7.1.0-beta'
+  - '@tsrs/darwin-x64@0.24.0-ts7.1.0-beta'
+  - '@tsrs/win32-x64@0.24.0-ts7.1.0-beta'
+  - '@tsrs/linux-x64-gnu@0.24.0-ts7.1.0-beta'
+  - '@tsrs/linux-x64-musl@0.24.0-ts7.1.0-beta'
+
 minimumReleaseAgeExcludePrune: true
 
 overrides:
